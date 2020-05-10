@@ -1,8 +1,6 @@
-FROM alpine:edge
+FROM alpine:3
 
-RUN echo '@testing http://nl.alpinelinux.org/alpine/edge/testing' \
-    >> /etc/apk/repositories && \
-    apk --update --no-cache add tor@testing su-exec curl
+RUN apk --update --no-cache add tor su-exec curl
 
 COPY torrc /etc/tor/torrc
 COPY /docker-entrypoint /
